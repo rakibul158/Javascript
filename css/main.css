@@ -1,0 +1,8 @@
+.bg-light{
+    background-color: green !important;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
