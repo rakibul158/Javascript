@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md Rakibul Hasan</title>
+    <title>Contact Us</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -49,18 +49,35 @@
         <div class="container">
             <div class="row py-3">
                 <div class="col-md-6">
-                   <h2>Love Test</h2>
+                   <h2>Contact Us</h2>
                 </div>
                 <div class="col-md-6">
                     <form>
                         <div class="form-group">
-                          <label for="love">Do you love me?</label>
-                          <input type="text" class="form-control" id="love">
-                          <small id="love" class="form-text text-muted">Wirte YES or NO</small>
+                          <label for="name">Name</label>
+                          <input type="text" class="form-control" id="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="text" class="form-control" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Mobile</label>
+                            <input type="text" class="form-control" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" class="form-control" rows="5"></textarea>
                         </div>
                         <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                     </form>
-                    <p class="yes pt-3" ></p>
+                    <div class="py-4 card">
+                        <p class="name p-0"></p>
+                        <p class="email p-0"></p>
+                        <p class="phone p-0"></p>
+                        <p class="message p-0"></p>
+                    </div>
+                    
                 </div>
             </div>
             
@@ -75,20 +92,41 @@
         $(document).ready(function(){
             $('#submit').on('click', function(e){
                 e.preventDefault();
-                let getLove = $('#love').val();
-                //console.log(getLove);
-                if(getLove == 'Yes' || getLove == 'yes' || getLove == 'YES'){
-                    //console.log('Yes');
-                    $(".yes").html('I Love You Too.');
-                } else if(getLove == 'No' || getLove == 'no' || getLove == 'NO') {
-                    //console.log('No');
-                    $('.yes').html('I Hate You Too.');
-                } else {
-                    $('.yes').html('Wppos <b> '+ getLove + ' </b> is not correct! <i>Please type "yes" or "no".</i>')
+                let name = $('#name').val();
+                let email = $('#email').val();
+                let phone = $('#phone').val();
+                let message = $('#message').val();
+                //console.log(name);
+                
+                if(name == ''){
+                    $('.name').hide();
+                } else
+                {
+                    $('.name').html('Name: '+name);
                 }
+                if(email == ''){
+                    $('.email').hide();
+                }else{
+                    $('.email').html('Eamil: '+email);
+                }
+                if(phone == ''){
+                    $('.phone').hide();
+                }else{
+                    $('.phone').html('Mobile: '+phone);
+                }
+                if(message == ''){
+                    $('.message').hide();
+                } else{
+                    $('.message').html('Message: '+message);
+                }
+
             });
-            $('#love').on('keyup', function(){
+
+            $('#name').on('keyup', function(){
                 $(this).val($(this).val().toUpperCase());
+            });
+            $('#email').on('keyup', function(){
+                $(this).val($(this).val().toLowerCase());
             });
         });
     </script>
