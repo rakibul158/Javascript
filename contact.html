@@ -56,10 +56,12 @@
                         <div class="form-group">
                           <label for="name">Name</label>
                           <input type="text" class="form-control" id="name">
+                          <span class="errorMsg" style="color:red;"></span>
                         </div>
                         <div class="form-group">
                             <label for="email">E-mail</label>
                             <input type="text" class="form-control" id="email">
+                            <span class="errorMsg" style="color:red;"></span>
                         </div>
                         <div class="form-group">
                             <label for="phone">Mobile</label>
@@ -68,6 +70,7 @@
                         <div class="form-group">
                             <label for="message">Message</label>
                             <textarea name="message" id="message" class="form-control" rows="5"></textarea>
+                            <span class="errorMsg" style="color:red;"></span>
                         </div>
                         <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                     </form>
@@ -77,10 +80,8 @@
                         <p class="phone p-0"></p>
                         <p class="message p-0"></p>
                     </div>
-                    
                 </div>
             </div>
-            
         </div>
     </section>
 
@@ -100,12 +101,15 @@
                 
                 if(name == ''){
                     $('.name').hide();
+                    $('.errorMsg').html('Name field is required!');
+
                 } else
                 {
                     $('.name').html('Name: '+name);
                 }
                 if(email == ''){
                     $('.email').hide();
+                    $('.errorMsg').html('Email field is required!');
                 }else{
                     $('.email').html('Eamil: '+email);
                 }
@@ -116,6 +120,7 @@
                 }
                 if(message == ''){
                     $('.message').hide();
+                    $('.errorMsg').html('Message field is required!');
                 } else{
                     $('.message').html('Message: '+message);
                 }
